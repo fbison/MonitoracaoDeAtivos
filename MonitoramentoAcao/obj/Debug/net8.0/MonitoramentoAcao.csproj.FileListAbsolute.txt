@@ -1,6 +1,0 @@
-C:\Fonte\M3AI\Meta3AI\M3AI.Imp.Referencias\src\MonitoramentoAcao\obj\Debug\net8.0\MonitoramentoAcao.csproj.AssemblyReference.cache
-C:\Fonte\M3AI\Meta3AI\M3AI.Imp.Referencias\src\MonitoramentoAcao\obj\Debug\net8.0\MonitoramentoAcao.GeneratedMSBuildEditorConfig.editorconfig
-C:\Fonte\M3AI\Meta3AI\M3AI.Imp.Referencias\src\MonitoramentoAcao\obj\Debug\net8.0\MonitoramentoAcao.AssemblyInfoInputs.cache
-C:\Fonte\M3AI\Meta3AI\M3AI.Imp.Referencias\src\MonitoramentoAcao\obj\Debug\net8.0\MonitoramentoAcao.AssemblyInfo.cs
-C:\Fonte\M3AI\Meta3AI\M3AI.Imp.Referencias\src\MonitoramentoAcao\obj\Debug\net8.0\MonitoramentoAcao.csproj.CoreCompileInputs.cache
-C:\Fonte\M3AI\Meta3AI\M3AI.Imp.Referencias\src\MonitoramentoAcao\obj\Debug\net8.0\MonitoramentoAcao.sourcelink.json
