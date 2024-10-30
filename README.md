@@ -29,7 +29,8 @@ A aplicação lê as configurações de um arquivo de configuração (appSetting
 
 ### Monitoramento Contínuo
 
-O programa ficará em execução contínua, monitorando a cotação do ativo enquanto estiver rodando. Todavia, o intervalo entre monitorações fixo foi pensado para evitar gerar spam excessivos de e-mail e nas configurações atuais está de um minuto. Se as necessidades do clientes forem muito sensíveis a tempo pode-se tanto diminuir um intervalo, quanto criar uma feature de não enviar e-mails para o mesmo usuário com a mesma mensagem por um intervalo x.
+O programa ficará em execução contínua, monitorando a cotação do ativo enquanto estiver rodando. Todavia, o intervalo entre monitorações fixo foi pensado para evitar gerar spam excessivos de e-mail e nas configurações atuais está de um minuto. Se as necessidades do clientes forem muito sensíveis a tempo pode-se tanto diminuir um intervalo, quanto criar uma feature de não enviar e-mails para o mesmo usuário com a mesma mensagem por um intervalo x. 
+Não foi criado a lógica para que a aplicação pare de rodar quando a bolsa estiver fechada, pois considerei que isso pode ser feito parando a aplicação e reinicializando pelo ambiente.
 
 ### Configurações de E-mail
 
