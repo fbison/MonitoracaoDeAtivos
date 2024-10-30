@@ -1,6 +1,7 @@
 ﻿using MonitoramentoAcao.Interfaces;
 using MonitoramentoAcao.Models;
 using MonitoramentoAcao.Utils;
+using System.Globalization;
 using System.Net;
 using System.Net.Mail;
 
@@ -10,7 +11,7 @@ namespace M3AI.Imp.Referencia.Base
     {
         private readonly ILogger<EmailService> _logger;
         private readonly ConfiguracoesEmail _configEmail;
-        protected EmailService(
+        public EmailService(
             ILogger<EmailService> logger,
             IConfiguration configuration)
         {
@@ -44,16 +45,18 @@ namespace M3AI.Imp.Referencia.Base
         public async Task AconselharVenda(string ativo, double valorAcao, double valorReferenciaVenda)
         {
             string assunto = $"Indicamos a venda do ativo: {ativo}";
-            string mensagem = $"O valor do ativo {ativo} está igual a R$ {valorAcao:F2}, acima do limite de R$ {valorReferenciaVenda:F2}. Por isso, aconselhamos a venda.";
-
+            string mensagem = string.Format(CultureInfo.InvariantCulture,
+                            "O valor do ativo {0} está igual a R$ {1:F2}, acima do limite de R$ {2:F2}. Por isso, aconselhamos a venda.",
+                            ativo, valorAcao, valorReferenciaVenda);
             await EnviarEmail(assunto, mensagem);
         }
 
         public async Task AconselharCompra(string ativo, double valorAcao, double valorReferenciaVenda)
         {
             string assunto = $"Indicamos a compra do {ativo}";
-            string mensagem = $"O valor do ativo {ativo} está igual a R$ {valorAcao:F2}, abaixo do limite de R$ {valorReferenciaVenda:F2}. Por isso, aconselhamos a compra.";
-
+            string mensagem = string.Format(CultureInfo.InvariantCulture,
+                            "O valor do ativo {0} está igual a R$ {1:F2}, abaixo do limite de R$ {2:F2}. Por isso, aconselhamos a compra.",
+                            ativo, valorAcao, valorReferenciaVenda);
             await EnviarEmail(assunto, mensagem);
         }
 

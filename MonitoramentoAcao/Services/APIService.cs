@@ -9,13 +9,13 @@ using System.Net.Http.Headers;
 
 namespace M3AI.Imp.Referencia.Base
 {
-    public class APIService : IApiService
+    public class ApiService : IApiService
     {
-        private readonly ILogger<APIService> _logger;
+        private readonly ILogger<ApiService> _logger;
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly IConfiguration _configuration;
         private readonly HttpClient _client;
-        protected APIService(ILogger<APIService> logger,
+        public ApiService(ILogger<ApiService> logger,
             IHttpClientFactory httpClientFactory,
             IConfiguration configuration)
         {
@@ -35,7 +35,7 @@ namespace M3AI.Imp.Referencia.Base
 
         private async Task<T> ConsultaGetEndpoint<T>(string endpoint) where T : new()
         {
-            using (Log<APIService> log = new Log<APIService>(_logger, "Consulta endpoint " + endpoint))
+            using (Log<ApiService> log = new Log<ApiService>(_logger, "Consulta endpoint " + endpoint))
                 try
                 {
                     string? urlBase = _configuration["API:UrlBase"];
@@ -66,7 +66,7 @@ namespace M3AI.Imp.Referencia.Base
 
         public async Task<Result> BuscaDadosDeAtivo(string chaveAtivo)
         {
-            using (Log<APIService> log = new Log<APIService>(_logger, $"Busca de chave: {chaveAtivo} ")) {
+            using (Log<ApiService> log = new Log<ApiService>(_logger, $"Busca de chave: {chaveAtivo} ")) {
                 var response = await ConsultaGetEndpoint<ResponseData>(_configuration["API:Endpoint_BuscaAtivo"] +chaveAtivo);
                 if (response.Results.Count > 1) throw log.LogErroComExcessao("Api obteve um comportamento inesperado enviando mais de um resultado para uma só ação");
                 return response.Results.FirstOrDefault();

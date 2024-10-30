@@ -8,7 +8,7 @@ namespace MonitoramentoAcao
     {
         private readonly ILogger<Worker> _logger;
         private readonly IMonitoramentoService _monitoramentoService;
-
+        private readonly int INTERVALOms = 60000; //1 minuto
         public Worker(ILogger<Worker> logger, IMonitoramentoService monitoramentoService)
         {
             _logger = logger;
@@ -20,7 +20,8 @@ namespace MonitoramentoAcao
             while (!stoppingToken.IsCancellationRequested)
             {
                 await _monitoramentoService.MonitoraAtivo();
-                await Task.Delay(10000, stoppingToken);
+                _logger.LogInformation($"Processo reiniciará em {INTERVALOms}");
+                await Task.Delay(INTERVALOms, stoppingToken);
             }
         }
     }

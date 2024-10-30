@@ -15,7 +15,7 @@ namespace M3AI.Imp.Referencia.Base
         private readonly ParametrosWorker _parametros;
         private readonly IApiService _apiService;
         private readonly IEmailService _emailService;
-        protected MonitoramentoService(
+        public MonitoramentoService(
             ILogger<MonitoramentoService> logger,
             IOptions<ParametrosWorker> options,
             IApiService apiService,
