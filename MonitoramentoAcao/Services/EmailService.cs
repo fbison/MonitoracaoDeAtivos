@@ -53,7 +53,7 @@ namespace M3AI.Imp.Referencia.Base
 
         public async Task AconselharCompra(string ativo, double valorAcao, double valorReferenciaVenda)
         {
-            string assunto = $"Indicamos a compra do {ativo}";
+            string assunto = $"Indicamos a compra do ativo: {ativo}";
             string mensagem = string.Format(CultureInfo.InvariantCulture,
                             "O valor do ativo {0} está igual a R$ {1:F2}, abaixo do limite de R$ {2:F2}. Por isso, aconselhamos a compra.",
                             ativo, valorAcao, valorReferenciaVenda);
