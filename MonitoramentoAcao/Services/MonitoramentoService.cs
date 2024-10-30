@@ -35,13 +35,19 @@ namespace M3AI.Imp.Referencia.Base
                 Result resultado = await _apiService.BuscaDadosDeAtivo(_parametros.ChaveAtivo);
                 if (resultado.RegularMarketPrice > _parametros.ReferenciaVenda)
                 {
+                    log.LogInternoExecucao($"Aconselhar venda para ativo: {_parametros.ChaveAtivo} pois valor igual a {resultado.RegularMarketPrice}");
                     await _emailService.AconselharVenda(_parametros.ChaveAtivo, resultado.RegularMarketPrice, _parametros.ReferenciaVenda);
+                    return;
                 }
 
                 if (resultado.RegularMarketPrice < _parametros.ReferenciaCompra)
                 {
+                    log.LogInternoExecucao($"Aconselhar compra para ativo: {_parametros.ChaveAtivo} pois valor igual a {resultado.RegularMarketPrice}");
                     await _emailService.AconselharCompra(_parametros.ChaveAtivo, resultado.RegularMarketPrice, _parametros.ReferenciaCompra);
+                    return;
                 }
+                log.LogInternoExecucao($"Nenhum conselho relacionado ao ativo: {_parametros.ChaveAtivo} pois valor igual a {resultado.RegularMarketPrice}");
+
             }
         }
         public void Dispose()
