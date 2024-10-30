@@ -1,4 +1,4 @@
-#Monitoramento de Ativos
+# Monitoramento de Ativos
 
 O Monitoramento de ativo é uma aplicação de console em C# que monitora a cotação de ativos da B3 e envia alertas por e-mail quando a cotação de um ativo cai abaixo ou sobe acima de níveis predefinidos.
 
